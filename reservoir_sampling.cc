@@ -182,8 +182,8 @@ median_reservoir_sampling(int min, int max, const int reservoir_size, unsigned i
 
   for (int i = 0; i < NumSamples; ++i)
   {
-    const int random_number = points(rng);
-    //gsl_rng_uniform_int(rng, max - min) + min;
+    const int random_number = //points(rng);
+    gsl_rng_uniform_int(rng, max - min) + min;
     reservoir.add_sample(random_number);
     min_value = std::min(min_value, random_number);
     max_value = std::max(max_value, random_number);
@@ -214,8 +214,8 @@ tuple<int, int, int> median_classic(int min, int max, unsigned int seed)
 
   for (int i = 0; i < NumSamples; ++i)
   {
-    const int random_number = points(rng);
-    //gsl_rng_uniform_int(rng, max - min) + min;
+    const int random_number = //points(rng);
+    gsl_rng_uniform_int(rng, max - min) + min;
     random_numbers.push_back(random_number);
     min_value = std::min(min_value, random_number);
     max_value = std::max(max_value, random_number);
